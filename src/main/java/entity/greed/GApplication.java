@@ -1,11 +1,11 @@
-package Entity;
+package entity.greed;
 
 import lombok.Data;
 
 @Data
-public class Application {
+public class GApplication {
 
-	public Application(String appName, int disruptionAllowed){
+	public GApplication(String appName, int disruptionAllowed){
 		this.appName = appName;
 		this.disruptionAllowed = disruptionAllowed;
 	}
