@@ -1,6 +1,8 @@
-import entity.greed.GApplication;
-import entity.greed.GNode;
-import entity.greed.GGroup;
+package fzp.solution;
+
+import fzp.entity.greed.GApplication;
+import fzp.entity.greed.GGroup;
+import fzp.entity.greed.GNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

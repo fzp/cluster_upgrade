@@ -1,4 +1,4 @@
-package entity.heuristic;
+package fzp.entity.heuristic;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -27,5 +27,10 @@ public class HGroup {
                 return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return nodes.stream().map(gNode -> gNode.nodeName).reduce((n1, n2) -> n1 + ", " + n2).orElse("");
     }
 }

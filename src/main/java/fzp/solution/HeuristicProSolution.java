@@ -1,12 +1,14 @@
-import entity.heuristic.HGroup;
-import entity.heuristic.HNode;
+package fzp.solution;
+
+import fzp.entity.heuristic.HGroup;
+import fzp.entity.heuristic.HNode;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Heuristic1Solution {
-    List<HGroup> solve(List<HNode> nodes) {
+public class HeuristicProSolution {
+    public List<HGroup> solve(List<HNode> nodes) {
         List<HGroup> groups = new LinkedList<>();
         List<HNode> unused = new LinkedList<>(nodes);
         while (unused.size() != 0) {

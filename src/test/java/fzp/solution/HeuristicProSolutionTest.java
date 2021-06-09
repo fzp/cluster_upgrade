@@ -1,7 +1,8 @@
+package fzp.solution;
 
-import entity.heuristic.HApplication;
-import entity.heuristic.HGroup;
-import entity.heuristic.HNode;
+import fzp.entity.heuristic.HApplication;
+import fzp.entity.heuristic.HGroup;
+import fzp.entity.heuristic.HNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,9 +11,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Heuristic1SolutionTest {
+class HeuristicProSolutionTest {
 
-    Heuristic1Solution solution = new Heuristic1Solution();
+    HeuristicProSolution solution = new HeuristicProSolution();
 
     @Test
     void good() {

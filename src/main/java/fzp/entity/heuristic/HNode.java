@@ -1,4 +1,4 @@
-package entity.heuristic;
+package fzp.entity.heuristic;
 
 import java.util.Set;
 

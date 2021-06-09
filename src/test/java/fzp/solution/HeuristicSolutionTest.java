@@ -1,7 +1,8 @@
+package fzp.solution;
 
-import entity.heuristic.HApplication;
-import entity.heuristic.HGroup;
-import entity.heuristic.HNode;
+import fzp.entity.heuristic.HApplication;
+import fzp.entity.heuristic.HGroup;
+import fzp.entity.heuristic.HNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

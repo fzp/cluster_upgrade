@@ -1,4 +1,4 @@
-package entity.greed;
+package fzp.entity.greed;
 
 import lombok.Data;
 
