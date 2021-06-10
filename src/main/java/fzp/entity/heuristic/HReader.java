@@ -24,7 +24,8 @@ public class HReader {
             String[] appIndexes = in.readLine().split(",");
             Set<HApplication> appSet = new HashSet<>();
             for (String appIndex : appIndexes) {
-                appSet.add(apps.get(Integer.parseInt(appIndex) - 1));
+                if (!appIndex.isEmpty())
+                    appSet.add(apps.get(Integer.parseInt(appIndex) - 1));
             }
             nodes.add(new HNode("n" + i, appSet));
         }

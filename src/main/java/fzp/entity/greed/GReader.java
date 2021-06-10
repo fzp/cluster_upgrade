@@ -24,7 +24,8 @@ public class GReader {
             String[] appIndexes = in.readLine().split(",");
             Set<GApplication> appSet = new HashSet<>();
             for (String appIndex : appIndexes) {
-                appSet.add(apps.get(Integer.parseInt(appIndex) - 1));
+                if (!appIndex.isEmpty())
+                    appSet.add(apps.get(Integer.parseInt(appIndex) - 1));
             }
             nodes.add(new GNode("n" + i, appSet));
         }

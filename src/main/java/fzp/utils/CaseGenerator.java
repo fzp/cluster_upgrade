@@ -3,7 +3,9 @@ package fzp.utils;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class CaseGenerator {
@@ -66,10 +68,12 @@ public class CaseGenerator {
         CaseGenerator gen = new CaseGenerator();
         gen.generate(4, 3, 3, 2, 4, "testCase/test1.txt");
         for (int i = 2; i <= 10; i++) {
-            gen.generate(500, 400, 5, 1, 20, "testCase/test" + i + ".txt");
+            gen.generate(50, 40, 5, 1, i, "testCase/test" + i + ".txt");
         }
-        for (int i = 11; i <= 20; i++) {
-            gen.generate(5000, 4000, 50, 10, 200, "testCase/test" + i + ".txt");
+        /*
+        for (int i = 11; i <= 30; i++) {
+            gen.generate(5000, 4000, 50, 10, (i - 10) * 10, "testCase/test" + i + ".txt");
         }
+         */
     }
 }
