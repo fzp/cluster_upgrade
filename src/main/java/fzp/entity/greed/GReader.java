@@ -23,8 +23,8 @@ public class GReader {
         for (int i = 1; i <= nodeNumber; i++) {
             String[] appIndexes = in.readLine().split(",");
             Set<GApplication> appSet = new HashSet<>();
-            for (int j = 0; j < appIndexes.length; j++) {
-                appSet.add(apps.get(Integer.parseInt(appIndexes[j]) - 1));
+            for (String appIndex : appIndexes) {
+                appSet.add(apps.get(Integer.parseInt(appIndex) - 1));
             }
             nodes.add(new GNode("n" + i, appSet));
         }
