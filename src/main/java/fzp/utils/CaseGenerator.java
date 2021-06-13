@@ -9,16 +9,24 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class CaseGenerator {
-    void generate(int nodeNumber, int appNumber, int naMax, int anMin, int anMax, String fileName) throws IOException {
+    void generate(int nodeNumber, int appNumber, int naMax, int anMin, int anMax, int disMin, String fileName, boolean special) throws IOException {
         Random random = new Random();
         int allApps = nodeNumber * naMax - appNumber * anMin;
         int anRest = anMax - anMin;
         ArrayList<Integer>[] nas = new ArrayList[nodeNumber];
         for (int i = 0; i < nas.length; i++) {
             nas[i] = new ArrayList<>();
+            if(special){
+                nas[i].add(1);
+            }
         }
         int[] appSizes = new int[appNumber];
         for (int app = 1; app <= appNumber; app++) {
+            if(app == 1 && special){
+                appSizes[0] = nodeNumber;
+                allApps += anMin - nodeNumber;
+                continue;
+            }
             if (allApps <= anRest) {
                 appSizes[app - 1] = allApps;
             } else {
@@ -45,7 +53,15 @@ public class CaseGenerator {
 
         int[] disruptions = new int[appNumber];
         for (int i = 0; i < appNumber; i++) {
-            disruptions[i] = random.nextInt(appSizes[i]) + 1;
+            if(i == 0 && special){
+                disruptions[0] = 5;
+                continue;
+            }
+            if (appSizes[i] >= disMin) {
+                disruptions[i] = random.nextInt(appSizes[i] - disMin + 1) + disMin;
+            } else {
+                disruptions[i] = random.nextInt(appSizes[i]) + 1;
+            }
         }
         BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
         out.write(String.valueOf(nodeNumber));
@@ -53,7 +69,7 @@ public class CaseGenerator {
         out.write(String.valueOf(appNumber));
         out.newLine();
         for (int i = 0; i < appNumber; i++) {
-            out.write(appSizes[i]+","+disruptions[i]);
+            out.write(appSizes[i] + "," + disruptions[i]);
             out.newLine();
         }
         for (List<Integer> na : nas) {
@@ -66,14 +82,17 @@ public class CaseGenerator {
 
     public static void main(String[] args) throws IOException {
         CaseGenerator gen = new CaseGenerator();
-        gen.generate(4, 3, 3, 2, 4, "testCase/test1.txt");
-        for (int i = 2; i <= 10; i++) {
-            gen.generate(50, 40, 5, 1, i, "testCase/test" + i + ".txt");
-        }
+
         /*
+        for (int i = 2; i <= 10; i++) {
+            gen.generate(50, 40, 5, 1, i, 1,"testCase/test" + i + ".txt");
+        }
         for (int i = 11; i <= 30; i++) {
             gen.generate(5000, 4000, 50, 10, (i - 10) * 10, "testCase/test" + i + ".txt");
         }
          */
+        for (int i = 31; i <= 40; i++) {
+            gen.generate(50, 40, 50, 15, 30, 2, "testCase/test" + i + ".txt", true);
+        }
     }
 }

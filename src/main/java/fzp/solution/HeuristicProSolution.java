@@ -2,12 +2,19 @@ package fzp.solution;
 
 import fzp.entity.heuristic.HGroup;
 import fzp.entity.heuristic.HNode;
+import fzp.entity.heuristic.HReader;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class HeuristicProSolution {
+    public List<HGroup> solve(String path) throws IOException {
+        HReader reader = new HReader();
+        return solve(reader.read(path));
+    }
+
     public List<HGroup> solve(List<HNode> nodes) {
         List<HGroup> groups = new LinkedList<>();
         List<HNode> unused = new LinkedList<>(nodes);
