@@ -12,10 +12,10 @@ public class Application {
         String algorithm = args[0];
         String filePath = args[1];
         List<?> ans;
-        if (algorithm.equals("0")) {
+        if (algorithm.equals("g")) {
             GreedSolution solution = new GreedSolution();
             ans = solution.solve(filePath);
-        } else if (algorithm.equals("1")) {
+        } else if (algorithm.equals("h")) {
             HeuristicSolution solution = new HeuristicSolution();
             ans = solution.solve(filePath);
         } else {
@@ -23,10 +23,8 @@ public class Application {
             ans = solution.solve(filePath);
         }
         System.out.println(ans.size());
-        /*
         for (Object an : ans) {
             System.out.println(an.toString());
         }
-         */
     }
 }

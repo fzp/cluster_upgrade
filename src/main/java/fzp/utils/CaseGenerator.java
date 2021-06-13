@@ -16,13 +16,13 @@ public class CaseGenerator {
         ArrayList<Integer>[] nas = new ArrayList[nodeNumber];
         for (int i = 0; i < nas.length; i++) {
             nas[i] = new ArrayList<>();
-            if(special){
+            if (special) {
                 nas[i].add(1);
             }
         }
         int[] appSizes = new int[appNumber];
         for (int app = 1; app <= appNumber; app++) {
-            if(app == 1 && special){
+            if (app == 1 && special) {
                 appSizes[0] = nodeNumber;
                 allApps += anMin - nodeNumber;
                 continue;
@@ -53,7 +53,7 @@ public class CaseGenerator {
 
         int[] disruptions = new int[appNumber];
         for (int i = 0; i < appNumber; i++) {
-            if(i == 0 && special){
+            if (i == 0 && special) {
                 disruptions[0] = 5;
                 continue;
             }
@@ -83,14 +83,14 @@ public class CaseGenerator {
     public static void main(String[] args) throws IOException {
         CaseGenerator gen = new CaseGenerator();
 
-        /*
         for (int i = 2; i <= 10; i++) {
-            gen.generate(50, 40, 5, 1, i, 1,"testCase/test" + i + ".txt");
+            gen.generate(50, 40, 5, 1, i, 1, "testCase/test" + i + ".txt", false);
         }
+
         for (int i = 11; i <= 30; i++) {
-            gen.generate(5000, 4000, 50, 10, (i - 10) * 10, "testCase/test" + i + ".txt");
+            gen.generate(5000, 4000, 50, 10, (i - 10) * 10, 1, "testCase/test" + i + ".txt", false);
         }
-         */
+
         for (int i = 31; i <= 40; i++) {
             gen.generate(50, 40, 50, 15, 30, 2, "testCase/test" + i + ".txt", true);
         }
